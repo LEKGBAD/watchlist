@@ -124,16 +124,16 @@ function UserDetails({movie,bookmarked,movieId,userId}) {
          <Text>Directed by {directedBy}</Text>
          <Text>Released {formatDate(releaseDate)}</Text>
          <Group>
-            {genres?.map((genre)=>
-            <Badge radius="sm">{genre.name}</Badge>
+            {genres?.map((genre,id)=>
+            <Badge key={id} radius="sm">{genre.name}</Badge>
             )}
          </Group>
          <Stack>
             <Group>
                 <Tooltip.Group openDelay={200} closeDelay={100}>
                 <Avatar.Group>
-                    {cast?.map((actor)=>
-                    <Tooltip label={actor.name} color='blue' withArrow>
+                    {cast?.map((actor,id)=>
+                    <Tooltip key={id} label={actor.name} color='blue' withArrow>
                     <Avatar src={actor?.headShotImage?.url} radius="xl" />
                     </Tooltip>
                     )}
